@@ -1,27 +1,40 @@
-#Morgan Ray (morgan-rayCOP2002)
-#COP2002.0M1
-#February 6,2025
-#Exercise 3
-#If Statements
-#
-#This Program will take user input for a MAC address and which Tech Organization that it identifies
- 
-#Get user input
+#  Zion Needham (Ultimate-Shoe)
+#  W25 COP2002.0M1.
+#  02/06/2025
+#  MAC Manufacturer Identification Program
+#  Simple Python program to give a user the manufacturer name based on the MAC address they input
 
-oui=input("What are the first 6 hexadecimal digits of your MAC address? ")
+def main():
+    # Introduction to the program and prompts user for MAC  address .
+    print("MAC Manufacturer Program \n-------------------------\n")
+    prompt = "Enter the first 6 hex values of the MAC address (format as XX:XX:XX): "
+    user_MAC = input(prompt)
 
-#Process input and give an answer
+    # Basic if/elif to check the user's input MAC address with the proper manufacturer.
+    if user_MAC == "00:00:17":
+        manufacturer = "Oracle"
 
-if oui == "00:00:17":
-    print("This is the OUI for Oracle")
-elif oui == "00:07:E9":
-    print("This is the OUI for Intel Corporation")
-elif oui == "04:27:28":
-    print("This is the OUI for Microsoft Corporation")
-elif oui == "04:26:65":
-    print("This is the OUI for Apple, Inc.")
-elif oui == "04:33:89":
-    print("This is the OUI for Huawei Technologies Co.,Ltd")   
-elif oui == "00:00:0C":
-    print("This is the OUI for Cisco Systems, Inc")
-else: print("Invalid OUI")
+    elif user_MAC == "00:07:E9":
+        manufacturer = "Intel Corporation"
+
+    elif user_MAC == "04:27:28":
+        manufacturer = "Microsoft Corporation"
+
+    elif user_MAC == "04:26:65":
+        manufacturer = "Apple, Inc."
+
+    elif user_MAC == "04:33:89":
+        manufacturer = "Huawei Technologies Co., Ltd"
+
+    elif user_MAC == "00:00:0C":
+        manufacturer = "Cisco Systems, Inc"
+
+    else:   # This will catch invalid values or values not found.
+        manufacturer = "Unknown"
+
+    # Output result telling the user the manufacturer name for their MAC address.
+    print(f"For {user_MAC} the MAC manufacturer is {manufacturer}.")
+
+# Calling the main function.
+if __name__ == "__main__":
+    main()
