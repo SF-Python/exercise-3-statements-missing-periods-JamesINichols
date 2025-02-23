@@ -1,52 +1,31 @@
-# John Pfeilsticker (GitHub: ingannilo)
-# COP2002 Section 0M1
-# 2025-02-07
-# Exercise 3: If Statements
-# MAC address to manufacturer program 
-
+print("Hello, World!")
 def main():
+    # Display the title of the program
+    print("MAC Manufacturer Program")
+    print("------------------------")
+   
+    # Prompt the user for input in the specified format
+    mac_address = input("\nEnter the first 6 hex values of the MAC address (format as XX:XX:XX): ")
 
-# print program title
-    print("MAC Manufacturer Progam")
-    print("-"*23, "\n")
-
-
-# prompting user for input
-    userIn = input("Type the first six hex digits of the MAC address (format as XX:XX:XX): ")
-
-
-# each if/elif statement below returns the manufacturer from known values
-# if any branch prior to the else statement is entered, restart flag is flipped
-    if(userIn == "00:00:17"):
-        print("For 00:00:17 the manufacurer is Oracle.")
-        restartFlag = False
-
-    elif(userIn == "00:07:E9"):
-         print("For 00:07:E9 the manufacturer is Intel Coprporation.")
-         restartFlag = False
-
-    elif(userIn == "04:27:28"):
-         print("For 04:27:28 the manufacturer is Microsoft Coroporation.")
-         restartFlag = False
-
-    elif(userIn == "04:26:65"):
-         print("For 04:26:65 the manufacturer is Apple Inc.")
-         restartFlag = False
-
-    elif(userIn == "04:33:89"):
-         print("For 04:33:89 the manufacturer is Huawei Technologies Co.,Ltd")
-         restartFlag = False
-
-    elif(userIn == "00:00:0C"):
-         print("For 00:00:0C the manufacturer is Cisco Systems, Inc.")
-         restartFlag = False
-
-# else statement below tells user thier input is no good;
-# re-assigning restartFlag just for clarity that entering 
-# this branch indicates failure to find manufacturer from input
+    # Determine the manufacturer based on the input
+    if mac_address == "00:00:17":
+        manufacturer = "Oracle"
+    elif mac_address == "00:07:E9":
+        manufacturer = "Intel Corporation"
+    elif mac_address == "04:27:28":
+        manufacturer = "Microsoft Corporation"
+    elif mac_address == "04:26:65":
+        manufacturer = "Apple, Inc."
+    elif mac_address == "04:33:89":
+        manufacturer = "Huawei Technologies Co.,Ltd"
+    elif mac_address == "00:00:0C":
+        manufacturer = "Cisco Systems, Inc"
     else:
-         print("Input not recognized/unknown manufacturer.  Plase try again.", "\n")
-         restartFlag = True
-        
-if(__name__=="__main__"):
+        manufacturer = "Unknown"
+   
+    # Output the result
+    print(f"\nFor {mac_address} the MAC manufacturer is {manufacturer}.\n")
+
+# Call the main function
+if __name__ == "__main__":
     main()
