@@ -1,35 +1,59 @@
-# Brianna Pinedo (briannamopi)
-# COP2002.0M1
-# February 11, 2025
-# If Statements
-# Determine who the manufacturer is for a NIC card
+# John Pfeilsticker (GitHub: ingannilo)
+# COP2002 Section 0M1
+# 2025-02-07
+# Exercise 3: If Statements
+# MAC address to manufacturer program 
 
-hexDigits= ['00:00:17', '00:07:E9', '04:27:28', '04:26:65', '04:33:89', '00:00:0C']
-company=['Oracle', 'Intel Corporation', 'Microsoft Corporation', 'Apple, Inc.', 'HuaweiTechnologiesCo., Ltd', 'Cisco Systems, Inc']
-#Lists of the codes and companies to keep track of which are in the system
+def main():
 
-theTitle='MAC Manufacturer Program\n------------------------'
-print(theTitle)
-print()
-message=input('Enter the first 6 hex values of the MAC address (format as XX:XX:XX): ')
+# print program title
+    print("MAC Manufacturer Progam")
+    print("-"*23, "\n")
 
-#using data FROM the system for the if statements and prints
 
-if message in hexDigits:
-    if message == hexDigits[0]:
-        print(f"For {message} the MAC manufacturer is {company[0]}.")
-    elif message == hexDigits[1]:
-        print(f"For {message} the MAC manufacturer is {company[1]}.")
-    elif message == hexDigits[2]:
-        print(f"For {message} the MAC manufacturer is {company[2]}.")
-    elif message == hexDigits[3]:
-        print(f"For {message} the MAC manufacturer is {company[3]}.")
-    elif message == hexDigits[4]:
-        print(f"For {message} the MAC manufacturer is {company[4]}.")
-    elif message == hexDigits[5]:
-        print(f"For {message} the MAC manufacturer is {company[5]}.")
-    elif message == hexDigits[6]:
-        print(f"For {message} the MAC manufacturer is {company[6]}.")
-else:
-    print('Unknown')
+# initializing boolean to be used in while loop allowing program 
+# to restart if invalid input is given from the user
+    restartFlag = True
 
+# while loop to restart program as described in previous comment
+    while(restartFlag == True):
+
+# prompting user for input
+        userIn = input("Type the first six hex digits of the MAC address (format as XX:XX:XX): ")
+
+
+# each if/elif statement below returns the manufacturer from known values
+# if any branch prior to the else statement is entered, restart flag is flipped
+        if(userIn == "00:00:17"):
+            print("For 00:00:17 the manufacurer is Oracle.")
+            restartFlag = False
+
+        elif(userIn == "00:07:E9"):
+             print("For 00:07:E9 the manufacturer is Intel Coprporation.")
+             restartFlag = False
+
+        elif(userIn == "04:27:28"):
+             print("For 04:27:28 the manufacturer is Microsoft Coroporation.")
+             restartFlag = False
+
+        elif(userIn == "04:26:65"):
+             print("For 04:26:65 the manufacturer is Apple Inc.")
+             restartFlag = False
+
+        elif(userIn == "04:33:89"):
+             print("For 04:33:89 the manufacturer is Huawei Technologies Co.,Ltd")
+             restartFlag = False
+
+        elif(userIn == "00:00:0C"):
+             print("For 00:00:0C the manufacturer is Cisco Systems, Inc.")
+             restartFlag = False
+
+# else statement below tells user thier input is no good;
+# re-assigning restartFlag just for clarity that entering 
+# this branch indicates failure to find manufacturer from input
+        else:
+             print("Input not recognized/unknown manufacturer.  Plase try again.", "\n")
+             restartFlag = True
+        
+if(__name__=="__main__"):
+    main()
