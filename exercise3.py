@@ -1,42 +1,41 @@
-# Collin Barnes (Coin117)
-# COP2002.0M1
-# 2-16-2025
-# Exercise 3
-# Program to lookup MAC Manufacturers
+#Dominic Lee
+#02/16/2025
+#COP2002 0M1
+#Exercise 3: If statements
 
-def get_manufacturer(mac_prefixes, manufacturers, mac_input):
-    for i in range(len(mac_prefixes)):
-        if mac_input.upper() == mac_prefixes[i]:
-            return manufacturers[i]
-    return "Unknown"
+
+print("MAC Manufacturer Program")
+
+print("---------------------")
+
+print() #Blank line
+
 
 def main():
-    print("           MAC Manufacturer Lookup")
-    print("------------------------")
-    print()
+
+
+# List of hex codes and manufacturers
+    manufacturers =[
+        ("00:00:17", "Oracle"),
+        ("00:07:E9", "Intel Corporation"),
+        ("04:27:28", "Microsoft Corporation"),
+        ("04:26:65", "Apple, Inc."),
+        ("04:33:89", "Huawei Technologies Co., Ltd"),
+        ("00:00:0C", "Cisco Systems, Inc")]
     
-    mac_prefixes = [
-        "00:00:17",
-        "00:07:E9",
-        "04:27:28",
-        "04:26:65",
-        "04:33:89",
-        "00:00:0C"
-    ]
-    
-    manufacturers = [
-        "Oracle",
-        "Intel Corporation",
-        "Microsoft Corporation",
-        "Apple, Inc.",
-        "Huawei Technologies Co.,Ltd",
-        "Cisco Systems, Inc"
-    ]
-    
-    mac_input = input("Enter the first 6 hex values of the MAC address you wish to find (format as XX:XX:XX): ")
-    manufacturer = get_manufacturer(mac_prefixes, manufacturers, mac_input)
-    
-    print(f"For {mac_input} the MAC manufacturer is {manufacturer}.")
+# Ask for input
+    hex_input = input("Enter the first 6 hex values of the MAC address (format as XX:XX:XX): ")
+    manufacturer = "Unknown"
+
+# Loop through the list to find a match
+    for match, MAC in manufacturers:
+        if hex_input.upper() == match:
+            manufacturer = MAC
+
+
+        # Output the result
+    print(f"For {hex_input} the MAC manufacturer is {manufacturer}.")
 
 if __name__ == "__main__":
     main()
+  
